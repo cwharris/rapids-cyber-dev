@@ -3,11 +3,6 @@ x-git-defaults: &git_defaults
     tag: branch-24.06
     upstream: cwharris
 
-x-rapids-build-backend-args: &rapids_build_backend_args |
-  --config-settings "skbuild.strict-config=false"
-  --config-settings "rapidsai.disable-cuda=true"
-  --config-settings "rapidsai.matrix-entry=cuda=${CUDA_VERSION_MAJOR_MINOR}"
-
 repos:
 - name: cudf
   path: cudf
@@ -15,6 +10,10 @@ repos:
   cpp:
     - name: cudf
       sub_dir: cpp
+      depends: []
+      args:
+        cmake: |
+          $([ "pip" = ${PYTHON_PACKAGE_MANAGER} ] && echo -DUSE_LIBARROW_FROM_PYARROW=ON || echo)
     - name: cudf_kafka
       sub_dir: cpp/libcudf_kafka
       depends: [cudf]
@@ -22,20 +21,14 @@ repos:
     - name: cudf
       sub_dir: python/cudf
       depends: [cudf]
-      args: {install: *rapids_build_backend_args}
+      args: {cmake: -DFIND_CUDF_CPP=ON}
     - name: dask_cudf
       sub_dir: python/dask_cudf
-      args: {install: *rapids_build_backend_args}
-    - name: cudf_polars
-      sub_dir: python/cudf_polars
-      args: {install: *rapids_build_backend_args}
     - name: cudf_kafka
       sub_dir: python/cudf_kafka
       depends: [cudf_kafka]
-      args: {install: *rapids_build_backend_args}
     - name: custreamz
       sub_dir: python/custreamz
-      args: {install: *rapids_build_backend_args}
 
 - name: mrc
   path: mrc

@@ -1,34 +1,7 @@
-From d2d59befbaf1191d8866faafad94989398381dc3 Mon Sep 17 00:00:00 2001
-From: Christopher Harris <xixonia@gmail.com>
-Date: Fri, 4 Oct 2024 00:53:01 +0000
-Subject: [PATCH] update deps to work with cudf branch-24.06
-
----
- dependencies.yaml | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
 diff --git a/dependencies.yaml b/dependencies.yaml
-index 55139473..c685a21e 100644
+index 30de9f1c..648d38ca 100644
 --- a/dependencies.yaml
 +++ b/dependencies.yaml
-@@ -3,7 +3,7 @@ files:
-   all:
-     output: conda
-     matrix:
--      cuda: ["12.5"]
-+      cuda: ["12.4"]
-       arch: [x86_64]
-     includes:
-       - build
-@@ -21,7 +21,7 @@ files:
-   ci:
-     output: conda
-     matrix:
--      cuda: ["12.5"]
-+      cuda: ["12.4"]
-       arch: [x86_64]
-     includes:
-       - build
 @@ -39,9 +39,9 @@ files:
        - checks
  
@@ -49,23 +22,6 @@ index 55139473..c685a21e 100644
            - python-graphviz
  
    python:
-@@ -144,10 +144,10 @@ dependencies:
-       - output_types: [conda]
-         matrices:
-           - matrix:
--              cuda: "12.5"
-+              cuda: "12.4"
-             packages:
--              - cuda-cudart-dev=12.5
--              - cuda-nvml-dev=12.5
--              - cuda-nvrtc-dev=12.5
--              - cuda-tools=12.5
--              - cuda-version=12.5
-+              - cuda-cudart-dev=12.4
-+              - cuda-nvml-dev=12.4
-+              - cuda-nvrtc-dev=12.4
-+              - cuda-tools=12.4
-+              - cuda-version=12.4
 -- 
 2.43.2
 

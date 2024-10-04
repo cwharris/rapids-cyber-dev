@@ -1,7 +1,6 @@
 x-git-defaults: &git_defaults
     host: github
-    tag: branch-24.06
-    upstream: cwharris
+    tag: branch-24.10
 
 x-rapids-build-backend-args: &rapids_build_backend_args |
   --config-settings "skbuild.strict-config=false"
@@ -11,7 +10,10 @@ x-rapids-build-backend-args: &rapids_build_backend_args |
 repos:
 - name: cudf
   path: cudf
-  git: {<<: *git_defaults, repo: cudf}
+  git:
+    <<: *git_defaults
+    upstream: rapidsai
+    repo: cudf
   cpp:
     - name: cudf
       sub_dir: cpp
@@ -61,5 +63,6 @@ repos:
       depends: []
   git:
     <<: *git_defaults
-    tag: branch-24.06-rapids-24.06
+    upstream: cwharris
+    tag: rapids-24.10
     repo: mrc

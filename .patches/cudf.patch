@@ -1,14 +1,5 @@
-From a4f30a6a1ea1598d168e85921c20aa419b1215c3 Mon Sep 17 00:00:00 2001
-From: Christopher Harris <xixonia@gmail.com>
-Date: Fri, 4 Oct 2024 00:52:17 +0000
-Subject: [PATCH] update deps to work with mrc branch-24.06-rapids-24.06
-
----
- dependencies.yaml | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
 diff --git a/dependencies.yaml b/dependencies.yaml
-index 0844d86fb6..5eb333002f 100644
+index 0844d86fb6..b6817364fe 100644
 --- a/dependencies.yaml
 +++ b/dependencies.yaml
 @@ -3,7 +3,7 @@ files:
@@ -20,22 +11,25 @@ index 0844d86fb6..5eb333002f 100644
        arch: [x86_64]
      includes:
        - build_base
-@@ -242,12 +242,12 @@ dependencies:
-           - matrix:
-               arch: x86_64
-             packages:
--              - gcc_linux-64=11.*
-+              - gcc_linux-64=12.1
-               - sysroot_linux-64==2.17
-           - matrix:
-               arch: aarch64
-             packages:
--              - gcc_linux-aarch64=11.*
-+              - gcc_linux-aarch64=12.1
-               - sysroot_linux-aarch64==2.17
+@@ -252,7 +252,7 @@ dependencies:
        - output_types: conda
          matrices:
-@@ -376,9 +376,9 @@ dependencies:
+           - matrix:
+-              cuda: "12.*"
++              cuda: "12.4"
+             packages:
+               - cuda-nvcc
+           - matrix:
+@@ -319,7 +319,7 @@ dependencies:
+     specific:
+       - output_types: [requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages: &build_python_packages_cu12
+               - &rmm_cu12 rmm-cu12==24.6.*
+           - matrix: {cuda: "11.*"}
+@@ -376,15 +376,15 @@ dependencies:
              packages:
                - cuda-version=12.0
            - matrix:
@@ -47,6 +41,85 @@ index 0844d86fb6..5eb333002f 100644
    cuda:
      specific:
        - output_types: conda
+         matrices:
+           - matrix:
+-              cuda: "12.*"
++              cuda: "12.4"
+             packages:
+               - cuda-cudart-dev
+               - cuda-nvrtc-dev
+@@ -429,7 +429,7 @@ dependencies:
+               arch: aarch64
+             packages:
+           - matrix:
+-              cuda: "12.*"
++              cuda: "12.4"
+               arch: x86_64
+             packages:
+               - libcufile-dev
+@@ -548,7 +548,7 @@ dependencies:
+     specific:
+       - output_types: [conda, requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - cuda-python>=12.0,<13.0a0
+           - matrix: {cuda: "11.*"}
+@@ -557,7 +557,7 @@ dependencies:
+           - {matrix: null, packages: *run_cudf_packages_all_cu11}
+       - output_types: conda
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - pynvjitlink
+           - matrix: {cuda: "11.*"}
+@@ -566,7 +566,7 @@ dependencies:
+               - ptxcompiler
+       - output_types: [requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - rmm-cu12==24.6.*
+               - pynvjitlink-cu12
+@@ -606,7 +606,7 @@ dependencies:
+       - output_types: conda
+         matrices:
+           - matrix:
+-              cuda: "12.*"
++              cuda: "12.4"
+             packages:
+               - cuda-sanitizer-api
+           - matrix:
+@@ -687,7 +687,7 @@ dependencies:
+     specific:
+       - output_types: [requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - cudf-cu12==24.6.*
+           - matrix: {cuda: "11.*"}
+@@ -708,7 +708,7 @@ dependencies:
+     specific:
+       - output_types: [requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - cudf_kafka-cu12==24.6.*
+           - matrix: {cuda: "11.*"}
+@@ -723,7 +723,7 @@ dependencies:
+     specific:
+       - output_types: [requirements, pyproject]
+         matrices:
+-          - matrix: {cuda: "12.*"}
++          - matrix: {cuda: "12.4"}
+             packages:
+               - cupy-cuda12x>=12.0.0
+           - matrix: {cuda: "11.*"}
 -- 
 2.43.2
 

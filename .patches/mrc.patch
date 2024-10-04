@@ -1,14 +1,5 @@
-From d2d59befbaf1191d8866faafad94989398381dc3 Mon Sep 17 00:00:00 2001
-From: Christopher Harris <xixonia@gmail.com>
-Date: Fri, 4 Oct 2024 00:53:01 +0000
-Subject: [PATCH] update deps to work with cudf branch-24.06
-
----
- dependencies.yaml | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
 diff --git a/dependencies.yaml b/dependencies.yaml
-index 55139473..c685a21e 100644
+index 5513947..f002b77 100644
 --- a/dependencies.yaml
 +++ b/dependencies.yaml
 @@ -3,7 +3,7 @@ files:
@@ -40,15 +31,6 @@ index 55139473..c685a21e 100644
    - nvidia
  
  dependencies:
-@@ -130,7 +130,7 @@ dependencies:
-     common:
-       - output_types: [conda]
-         packages:
--          - doxygen=1.9.2
-+          - doxygen=1.9.1
-           - python-graphviz
- 
-   python:
 @@ -144,10 +144,10 @@ dependencies:
        - output_types: [conda]
          matrices:

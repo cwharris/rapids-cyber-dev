@@ -5,8 +5,8 @@
       "context": "${localWorkspaceFolder}/.devcontainer/default",
       "args": {
         "CUDA": "12.5",
-        "RAPIDS": "24.06",
-        "BASE": "rapidsai/devcontainers:24.06-cpp-mambaforge-ubuntu22.04"
+        "RAPIDS": "24.10",
+        "BASE": "rapidsai/devcontainers:24.10-cpp-mambaforge-ubuntu22.04"
       }
     },
     "capAdd": [

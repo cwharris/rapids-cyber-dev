@@ -1,5 +1,5 @@
 diff --git a/dependencies.yaml b/dependencies.yaml
-index 30de9f1c..648d38ca 100644
+index 22e206c1..fffb539b 100644
 --- a/dependencies.yaml
 +++ b/dependencies.yaml
 @@ -39,9 +39,9 @@ files:
@@ -13,7 +13,14 @@ index 30de9f1c..648d38ca 100644
    - nvidia
  
  dependencies:
-@@ -130,7 +130,7 @@ dependencies:
+@@ -124,20 +124,20 @@ dependencies:
+     common:
+       - output_types: [conda]
+         packages:
+-          - numpy=1.24
++          - numpy>=1.23,<3.0a0
+ 
+   documentation:
      common:
        - output_types: [conda]
          packages:
@@ -22,6 +29,37 @@ index 30de9f1c..648d38ca 100644
            - python-graphviz
  
    python:
+     common:
+       - output_types: [conda]
+         packages:
+-          - python=3.10
++          - python=3.12
+ 
+   cudatoolkit:
+     specific:
+diff --git a/external/utilities b/external/utilities
+index 6e10e2c9..cb6a44ae 160000
+--- a/external/utilities
++++ b/external/utilities
+@@ -1 +1 @@
+-Subproject commit 6e10e2c9a686041fdeb3d9e100874c6fa55f0856
++Subproject commit cb6a44aeb28905a19769929af5f87b47fc064c4b
+diff --git a/python/versioneer.py b/python/versioneer.py
+index 89d6cf34..002cb12d 100644
+--- a/python/versioneer.py
++++ b/python/versioneer.py
+@@ -353,9 +353,9 @@ def get_config_from_root(root):
+     # configparser.NoOptionError (if it lacks "VCS="). See the docstring at
+     # the top of versioneer.py for instructions on writing your setup.cfg .
+     setup_cfg = os.path.join(root, "setup.cfg")
+-    parser = configparser.SafeConfigParser()
++    parser = configparser.ConfigParser()
+     with open(setup_cfg, "r") as f:
+-        parser.readfp(f)
++        parser.read_file(f)
+     VCS = parser.get("versioneer", "VCS")  # mandatory
+ 
+     def get(parser, name):
 -- 
-2.43.2
+2.46.1
 

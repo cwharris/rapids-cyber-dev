@@ -1,7 +1,9 @@
-# CAUTION:
+# Dev Container for CUDF + MRC 24.10
+
+## CAUTION:
 Doing this will create sister-directories (`../.conda`, `../cudf`, `../mrc`, etc), so for tidiness you may want to keep this repository in an empty parent directory.
 
-# Running the Dev Container:
+## Running the Dev Container:
 Install VSCode extension `ms-vscode-remote.remote-containers` using `ctrl-shift-x`.
 
 Open this repo as the workspace root.
@@ -10,7 +12,7 @@ Open this repo as the workspace root.
 
 Wait for the devcontainer to launch, and follow prompts regarding logging in with github. If you see warnings/errors regarding vault access, you may need to be added to the `rapidsai` and/or `nvidia` orgs on github.
 
-# Cloning Repositories and Apply Patches
+## Cloning Repositories and Apply Patches
 Once the container is booted, open a new terminal (in the vscode window, so it's inside the container), and run:
 
 ```
@@ -33,14 +35,14 @@ In case the conda environment didn't get automatically activated (due to bad sol
 conda activate rapids-cyber
 ```
 
-# Building CUDF and MRC
+## Building CUDF and MRC
 Build everything:
 ```
 build-all
 ```
 
 
-# Check CUDF and MRC were built and installed
+## Check CUDF and MRC were built and installed
 Once that's done (may take a while), you can try importing cudf/mrc:
 ```
 python -c "import cudf"

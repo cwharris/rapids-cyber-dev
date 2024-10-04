@@ -1,5 +1,5 @@
 diff --git a/dependencies.yaml b/dependencies.yaml
-index 5513947..f002b77 100644
+index 5513947..c685a21 100644
 --- a/dependencies.yaml
 +++ b/dependencies.yaml
 @@ -3,7 +3,7 @@ files:
@@ -31,6 +31,15 @@ index 5513947..f002b77 100644
    - nvidia
  
  dependencies:
+@@ -130,7 +130,7 @@ dependencies:
+     common:
+       - output_types: [conda]
+         packages:
+-          - doxygen=1.9.2
++          - doxygen=1.9.1
+           - python-graphviz
+ 
+   python:
 @@ -144,10 +144,10 @@ dependencies:
        - output_types: [conda]
          matrices:
